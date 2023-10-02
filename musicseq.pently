@@ -1,0 +1,1325 @@
+#
+# Pently audio engine
+# Sample songs
+#
+# Copyright 2001-2018 Damian Yerrick
+# 
+# This software is provided 'as-is', without any express or implied
+# warranty.  In no event will the authors be held liable for any damages
+# arising from the use of this software.
+# 
+# Permission is granted to anyone to use this software for any purpose,
+# including commercial applications, and to alter it and redistribute it
+# freely, subject to the following restrictions:
+# 
+# 1. The origin of this software must not be misrepresented; you must not
+#    claim that you wrote the original software. If you use this software
+#    in a product, an acknowledgment in the product documentation would be
+#    appreciated but is not required.
+# 2. Altered source versions must be plainly marked as such, and must not be
+#    misrepresented as being the original software.
+# 3. This notice may not be removed or altered from any source distribution.
+#
+
+title Pently demo
+author DJ Tepples
+copyright 2019 Damian Yerrick
+
+durations stick
+notenames english
+
+include Pino_drumkit.inc
+
+sfx quiethat on noise
+  volume 2
+  pitch 12
+  timbre 0
+
+# If I could make it shorter, I would.  The original s3m version
+# had a single HPF'd step response for this
+sfx shorthat on noise
+  volume 4
+  pitch 12
+  timbre 0
+
+sfx tubfloorA on pulse
+  volume 12 10 8 7 6 5 4 4 3 3 2 1
+  timbre 1 1 2
+  pitch eb, cb, b,, bb,, a,,
+
+sfx arghatbuzz on noise
+  volume 4 2 3 2 2 1
+  pitch 12 12 7
+  timbre 0 1
+
+sfx stickskick on noise
+  volume 4 6 5 4 3 3 2 2 1 1 1 1 0 
+  pitch 3 4 5 5 5 4 5 4
+  timbre 1
+
+sfx stickshatlo on noise
+  volume 4 6 3 2 1 1 0 
+  pitch 6
+  timbre 1
+
+sfx longkick on noise
+    volume 12 11 10 9 8 7 6 4 3 3 2:3 1:4
+    pitch 10 0
+
+sfx longsnare on noise
+    volume 12 11 10 9 8 7 6 4 3 3 2:3 1:4
+    pitch 4 10
+
+drum tubkick kick tubfloorA
+drum arghatbuzz arghatbuzz
+drum quiethat quiethat
+drum shorthat shorthat
+drum stickskick stickskick
+drum stickshatlo stickshatlo
+drum lkick longkick trikick
+drum lsnare longsnare trisnare
+
+instrument bass
+
+instrument framepop
+  volume 14 0
+
+instrument banjo
+  volume 12 8 6 5 4 4 3 3 2
+  decay 1
+  timbre 0
+
+instrument latebanjo
+  volume 0 12 8 6 5 4 4 3 3 2
+  decay 1
+  timbre 0
+
+instrument tubbass
+  volume 12 10 8 7 6 5 4
+  decay 2
+  timbre 1 1 2
+  pitch 6 4 2 1 0
+
+instrument tubbass_slow
+  volume 14 13 12 11 10 9 9 9 8
+  decay 1
+  timbre 0 0 1 1 2
+  pitch 6 4 2 1 0
+
+instrument dut
+  volume 12 12 11 8 6 5 4 2 1 0
+  decay 16
+  timbre 2 1 0
+  pitch -3 -1 0 0 -1 -1 -2 -3 -5 -7
+
+instrument feat_wah
+  volume 8 8 7 7 6 6 5 5 5 4 4 4 3
+  decay 1
+  timbre 2:6 1:6 0
+
+instrument feat_power
+  timbre 0
+
+instrument bf98_flute
+  volume 4 6 7 6 6 5 5 5
+  timbre 2
+
+# This and latebanjo will be the test cases for
+# attack/sfx data substring detection
+instrument bf98_flute2
+  volume 4 6 7 6 6 5 5 4
+  timbre 2
+
+instrument bf98_osti
+  volume 3 6 7 6 5
+  timbre 0
+  detached
+
+instrument orchhit
+  volume 8:3 7:3 6:3 5:3 4:3 3:3 2:3 1:3 0
+  timbre 1
+  pitch | 12 0 -12
+
+instrument crashcymbal
+  volume 7
+  decay 2
+  timbre 0
+
+instrument fiddle2
+  volume 3 5 6 5 5 4
+  timbre 1
+  detached
+
+instrument bf98_fluteshort
+  volume 4 6 7 6 5
+  timbre 2
+
+instrument vowele
+  volume 4 6 7 6 6 5 5 5
+  timbre 1
+
+instrument vowela
+  volume 4 6 7 6 6 5 5 5
+  timbre 0
+
+instrument argtwinkle
+  volume 7 6 6 5 5 4 4 4 4 4 2
+  decay 1
+
+instrument arg2bass
+  volume 10
+  decay 20
+
+instrument toot0
+  volume 4 7 8 8 7 5 3 2
+  timbre 2
+  decay 8
+
+instrument stringlead
+  volume 4 7 8 8 7 7 5 4 4 3 
+  timbre 0
+
+instrument isopiano
+    volume 8 7
+    decay 2
+    timbre 2 1
+
+# Don't decay-optimize this; it's used only by attack track
+instrument isotinkle
+    volume 9 5 0
+    timbre 2 1
+
+instrument isobeep
+    volume 8
+    decay 18
+    timbre 2
+
+instrument isobeepsq
+    volume 4
+    decay 8
+    timbre 0
+
+@ENno3 = 70
+@ENpower = 7C
+@ENsus4 = 57
+@ENMno5 = 4C
+
+
+# argument
+# by Damian Yerrick, 2001
+# the instrumental from a "stupid statement dance mix" of some
+# documentary
+
+song argument
+  title Argument?
+  time 3/4
+  scale 8
+  tempo 180
+
+  at 1
+  pattern drum34
+    tubkick4 shorthat shorthat
+  pattern drum34_8
+    tubkick8 quiethat shorthat arghatbuzz shorthat quiethat
+  play drum34
+
+  at 9
+  pattern commemorate3 on pulse2 with bf98_flute2
+    relative
+    @vowele bb8 db8 r c8 db4
+    c4 r8 @vowela db8 w4g @vowele c4
+    b8 w4g @bf98_flute2 bb4 @vowele d8 r4g @bf98_flute2 b4
+    @vowela bb8 r4g @vowele a4 @bf98_flute2 r4 @bf98_flute2 a8
+    @vowela b7g r @vowele a @bf98_flute2 c# w4g @vowele b#4 a8
+    r4g c4 b r8
+    a8 @bf98_flute2 r4g b4 @vowele a8 @vowela ab r
+    d#4g ab4 @vowele a r2
+  play commemorate3
+  
+  pattern tubbassloop on pulse2 with tubbass_slow
+    @tubbass_slow
+    relative
+    bb,,8( a8 a2 a2.) r2. r2.
+  
+  at 17
+  play tubbassloop
+  
+  at 21
+  stop pulse2
+
+  at 25
+  pattern intro_dut on pulse2 with dut
+    eb2. r eb r
+    eb eb eb4 eb eb eb8 eb eb eb eb eb
+  play intro_dut
+  
+  at 33
+  mark add bass
+  pattern bass with bass on triangle
+    a,4 a8 a,4 a8 | a,4 a a, |
+    c4 c'8 c4 c'8 | c4 c' c4 |
+    g,4 g8 g,4 g8 | g,4 g g, |
+    d4 d'8 d4 d'8 | d4 d' d4 |
+
+  stop pulse2
+  play bass
+
+  at 49
+  pattern melody with bf98_flute2 on pulse2
+    orelative
+    e'2.~ e2 g4  d2.~ d2 c4 
+    e2.~ e2 g4   d2.~ d2.
+  play melody
+
+  at 65
+  mark swell
+  attack on pulse2
+  pattern melodyend with bf98_flute2 on attack
+    orelative
+    d#'8 e r2
+  play bass on pulse2 with bf98_flute2
+  play melodyend
+  play drum34_8
+
+  at 66
+  stop attack
+  
+  at 73
+  play bass up 12 on pulse1 with bf98_flute2
+  
+  at 81
+  play tubbassloop up 12 on pulse1
+  play melody up 12
+  
+  at 97
+  mark descending chords
+  pattern descendingchords on pulse2 with bf98_flute2
+    relative
+    o4 e8 c a e c a e c a e c a
+    o4 g e c g e c g e c g e c
+    o4 g d b g d b g d b g d b
+    o4 f# d a f# d a f# d a f# d a
+  play descendingchords
+  
+  at 113
+  pattern twinkle with argtwinkle on pulse2
+    relative
+    r4 c''' d e2.  r4 e f# g2.
+    r4 b, c d2.    r4 d e f#2.
+  stop pulse1
+  play twinkle
+
+  at 145
+  play tubbassloop up 12 on pulse1
+  play melody up 12
+  attack on pulse1
+  play twinkle on attack
+  
+  at 161
+  attack on pulse2
+  play bass on pulse2 with bf98_flute2
+  play melodyend up 12
+  stop pulse1
+  at 162
+  stop attack
+  
+  at 169
+  play bass up 12 on pulse1 with bf98_flute2
+
+  at 177
+  mark cadenza
+  pattern cadenzabass on pulse1 with tubbass_slow
+    a,2. w c w g, w d w
+  pattern cadenza on pulse2 with bf98_flute2
+    relative
+    e'''4 d c d e a, c g a e g c,
+    d g, b d, g b, d f#, a d, f# a,
+    c e a e a c g c e c e g
+    d g b g b d a d f# d f# a
+  pattern cadenzaend on pulse2 with bf98_flute2
+    relative
+    c e a c e a c e g c e g
+    b8 a g e d b a g e d b a f#2. w2 EP01 f#,,4
+  pattern cadenzaend2 on attack with bf98_fluteshort
+    relative
+    e'''8 d b a g e d b a g e d a2. r
+  pattern cadenzaend3 on pulse1 with bf98_flute
+    a2 EP01 a,,4
+  play cadenza
+  attack on pulse2
+  play cadenza down 12 on attack with bf98_fluteshort
+  play cadenzabass
+
+  at 201
+  play cadenzaend
+  play cadenzaend down 12 on attack with bf98_fluteshort
+  at 205
+  play cadenzaend2
+
+  at 208
+  play cadenzaend3
+  
+  at 209
+  mark B: 6/8
+  pickup 1
+  time 6/8
+  scale 8
+  tempo 120
+
+  pattern drum68
+    tkick8 quiethat quiethat
+    fallthrough
+  pattern drum68nokick
+    shorthat8 quiethat quiethat
+  pattern drum68allkick
+    tkick8 quiethat quiethat
+  pattern drum68top with tubbass on attack
+    a,4.
+  pattern bass68 with arg2bass on triangle
+    relative
+    a,8 a a a a a  a a a a a a
+    c c c c c c    c c c c c c
+    g g g g g g    g g g g g g
+    d' d d d d d   d d d d d d
+  pattern harmony68_1 with bf98_flute2 on pulse2
+    EPOF
+    e'8 r4 r4. r2.
+    g'8 r4 r4. r2.
+    g'8 r4 r4. r2.
+    f#'8 r4 r4. r2.
+  pattern harmony68_2 with bf98_flute2 on pulse1
+    EPOF
+    a,2. r c r g, r d r
+  pattern harmony68_3 with bf98_flute2 on attack
+    c'8 r4 r4. r2.
+    e'8 r4 r4. r2.
+    d'8 r4 r4. r2.
+    d'8 r4 r4. r2.
+  pattern melody68 with bf98_flute2 on pulse2
+    relative 
+    e'8 a, c e d c d r e r4.
+    g8 g, c e d c d r e r d c
+    g'8 g, b d c b c r d r4.
+    f#8 a, d f# e d r f#4 g8 g# a
+  
+  pattern bass68end with arg2bass on triangle
+    relative
+    a,4 a a  a a a  c c c   c c c
+    g g g    g g g  d' d d  d d d
+  pattern drum68topend with tubbass on attack
+    a,2.
+
+  at 1
+  stop pulse1 pulse2 triangle attack
+  play drum68
+  attack on pulse1
+  play drum68top
+  play bass68
+  at 33
+  play harmony68_1
+  at 34
+  play harmony68_2
+  at 49
+  play harmony68_3
+
+  at 65
+  mark B melody
+  play drum68top
+  play melody68
+  play drum68allkick
+
+  at 81
+  play drum68
+  play harmony68_1
+  play harmony68_2 on triangle
+  
+  at 97
+  play drum68allkick
+  play drum68top
+  play melody68
+  play bass68
+
+  at 113
+  play harmony68_2 on triangle
+  play drum68nokick
+
+  at 129
+  stop pulse1 pulse2
+  play drum68allkick
+  play bass68
+  
+  at 145
+  play drum68
+  play bass68end
+  play drum68topend
+
+  at 161
+  stop triangle
+  da capo
+
+# Isometry
+# By Damian Yerrick, 2006
+# This piece was composed to time a workout.  It is nominally in
+# D flat mixolydian, but because it uses bVII and bVI chords (the V
+# and IV of the relative major of the parallel minor), double flats
+# are abundant. So I respelled it to C sharp mixolydian.
+song Isometry
+  time 4/4
+  scale 16
+  tempo 90
+
+  pattern triosti on triangle with isobeep
+    c#'16
+  
+  pattern trifill on triangle with bass
+    c#'16 r8.
+  
+  pattern tinkle1 on attack with isotinkle
+    relative
+    e#'''16 c# g# e#
+  
+  pattern tinkle2 on attack with isotinkle
+    relative
+    e#'''16 d# b f#
+  
+  pattern tinkle3 on attack with isotinkle
+    relative
+    e'''16 c# a e
+
+  pattern melmin1 on pulse1 with isopiano
+    relative
+    c#'8. c# d#4. e8 d#
+    c#8. c# b8 w2
+    fallthrough
+
+  pattern melmaj1 on pulse1 with isopiano
+    relative
+    c#'8. c# d#4. e#8 d#
+    c#8. c# b8 w2
+
+  pattern melmin2 on pulse2 with isopiano
+    relative
+    e'8. e f#4. g#8 f#
+    e8. e d#8 w2
+    fallthrough
+
+  pattern melmaj2 on pulse2 with isopiano
+    relative
+    e#'8. e# f#4. g#8 f#
+    e#8. e# d#8 w2
+
+  pattern drum
+    lkick4 lsnare clhat lsnare
+    clhat lsnare clhat lsnare
+
+  pattern drumfill
+    kick4
+
+  at 1
+  attack on pulse1
+  play tinkle1
+  play melmaj2
+  play melmaj1
+  play triosti
+  play drum
+
+  at 3
+  play tinkle2
+  play triosti down 2
+
+  at 5
+  play tinkle3
+  play melmin2
+  play melmin1
+  play triosti down 4
+
+  at 7
+  play tinkle1
+#  play melmaj2
+#  play melmaj1
+  play triosti
+
+  at 8:3
+  stop attack pulse1
+  play drumfill
+  play trifill on pulse2 with banjo down 24
+  play trifill
+
+  at 9
+  resume
+  play tinkle1
+  play melmaj2
+  play melmaj1
+  play triosti
+  play drum
+
+  at 11
+  play tinkle2
+  play triosti down 2
+
+  at 13
+  play tinkle3
+  play melmin2
+  play melmin1
+  play triosti down 4
+
+  at 15
+  play tinkle1
+#  play melmaj2
+#  play melmaj1
+  play triosti
+  
+  at 16:3
+  stop attack pulse1
+  play drumfill
+  play trifill on pulse2 with banjo down 24
+  play trifill
+
+  at 17
+  mark rest between sets
+  pattern restperiod1 on pulse1 with isopiano
+    relative
+    e#4. f# g#4 w1
+
+  pattern restperiod2 on pulse1 with isopiano
+    relative
+    c#4. d# e4 w1
+    c#4. d# e#4 w1
+
+  stop pulse2
+  play triosti
+  play triosti on pulse2 with isobeepsq down 24
+  play drum
+
+  at 19
+  play triosti down 2
+  play triosti on pulse2 with isobeepsq down 26
+
+  at 21
+  play triosti down 4
+  play triosti on pulse2 with isobeepsq down 28
+
+  at 23
+  play triosti
+  play triosti on pulse2 with isobeepsq down 24
+
+  at 25
+  play restperiod1
+
+  at 27
+  play triosti down 2
+  play triosti on pulse2 with isobeepsq down 26
+
+  at 29
+  play restperiod2
+  play triosti down 4
+  play triosti on pulse2 with isobeepsq down 28
+
+  at 31
+  play triosti
+  play triosti on pulse2 with isobeepsq down 24
+
+  at 33
+  play triosti down 4
+  play triosti on pulse2 with isobeepsq down 28
+
+  at 35
+  play triosti
+  play triosti on pulse2 with isobeepsq down 24
+
+  at 36
+  stop attack pulse1
+  play trifill on pulse2 with banjo down 24
+  play drumfill
+  play trifill
+
+  at 37
+  da capo
+
+# from picking up sticks video
+# By Damian Yerrick
+
+song Sticks
+  time 12/8
+  scale 16
+  tempo 100
+  
+  at 1
+  pattern introbanjo1 with banjo on pulse1
+    relative
+    w8 r d'4. a2 c4 d8
+  pattern introch2 with toot0 on pulse2
+    relative
+    d4. @banjo c' @tubbass d,,2. @toot0
+    f'4. @banjo c' @tubbass f,,2. @toot0
+    g'4. @banjo c @tubbass g, @banjo d'
+    @tubbass a, @banjo a''':37
+    @tubbass c,,, @banjo c'''4:47
+    @tubbass c,,,8 d2. w4. r
+  play introbanjo1
+  play introch2
+
+  at 3:3
+  pattern introbanjo2 with banjo on pulse1
+    relative
+    b4. c4 d8 | e4 d8 e4. e4 g4. a8 |
+    d2.:47 w4. r
+  play introbanjo2
+  
+  at 4
+  pattern introbass with bass on triangle
+    relative
+    a,,2. c4. w4 c8 d2. w4. r
+  pattern introdrum
+    clhat4. w4 clhat8
+    clhat4. w4 clhat8
+    clhat2. w4. stickskick
+    w2. w4. clhat
+
+  play introbass
+  play introdrum
+
+  pattern bassstart with isobeep on triangle
+    relative
+    w4 g''2 g w8 f2 f4. w2.
+  pattern bass with toot0 on triangle
+    relative
+    @toot0 c4 @isobeep g'''2 g w8 f2 f4. w2.
+  pattern chords1start with toot0 on pulse1
+    relative
+    w4 @toot0 c''2 bb w8 a2 a4. w2.
+  pattern chords1 with toot0 on pulse1
+    relative
+    @tubbass c,4 @toot0 c'''2 bb w8 a2 a4.
+      w4 w16 w4g a' w2g bb c w4
+    @tubbass c,,,,4 @toot0 c'''2 bb w8 a2 a4.
+      a'4 a8 g4.
+  pattern chords2 with toot0 on pulse2
+    relative
+    w4 e''2 d w8 c2 c4. w2.
+  pattern drum
+    stickskick2. clhat2. stickshatlo2. clhat2.
+
+  pattern v_iv_bass with toot0 on triangle
+    relative
+    @toot0 g4 @isobeep g''2 g w8 bb2
+    bb w8 g2
+    f w8 f2 f4.
+    w2. @toot0 f,,
+  pattern v_iv_chords1 with toot0 on pulse1
+    relative
+    r4 bb'2 c w8 d2
+    d w8 bb2
+    bb w8 a2 a4.
+    @banjo f a, a2.
+  pattern v_iv_chords2 with tubbass on pulse2
+    relative
+    g,4 @toot0 d'''2 e w8 f2
+    f w8 d2
+    d w8 c2 c4.
+    @banjo r4 c,4. c8 @tubbass f,,4 @banjo f'8 e4 d8
+
+  at 6
+  play chords2
+  play chords1start
+  stop triangle
+  at 7
+  stop drum
+
+  at 8
+  play bassstart
+  
+  at 10
+  segno
+  play chords1
+  play chords2
+  play bass
+  play drum
+
+  at 26
+  play v_iv_bass
+  play v_iv_chords1
+  play v_iv_chords2
+  
+  at 29
+  stop drum
+    
+  at 30
+  dal segno
+
+# The Naive Confidence
+# aka Twinkle, Twinkle, Little Star
+# Pre-1800
+
+song twinkle
+  title The Naive Confidence
+  author traditional; arr. D. Yerrick
+  time 6/8
+  scale 8
+
+  pattern melody with bf98_osti on pulse2
+    orelative
+    c'4. c g g a a g2.
+    f4. f e e d d c2.
+    g4. g f f e e d2.
+    g4. g f f e e d2.
+
+  pattern bassline with bass on triangle
+    orelative
+    c' g e g f c e c
+    d f c e g b, c' g
+    e g d f c e g d
+    e g d f c e g g,
+
+  pattern bassfinal with bass on triangle
+    c'2.
+
+  pattern beat
+  tkick4. clhat tkick clhat4 clhat8
+
+  at 1
+  tempo 90
+  play melody
+  play beat
+  play bassline
+
+  at 23
+  tempo 75
+
+  at 24
+  tempo 60
+  play bassfinal
+
+  at 24:2
+  stop drum
+
+  at 25
+  fine
+
+# Canon in D
+# By Johann Pachelbel, pre-1800
+
+song canon
+  title Canon in D
+  author J. Pachelbel; arr. D. Yerrick
+  time 4/4
+  scale 32
+  tempo 56.25
+
+  at 1
+  # Sorry Rob Paravonian
+  pattern bass on triangle with bass
+    d' a b f# g d g a
+  play bass
+
+  at 3
+  pattern melody on pulse2 with bf98_osti
+    relative
+    # 3
+    MP1
+    f#''4 e d c#
+    b a b c#
+    d c# b a
+    g f# g e
+    # 7
+    d8 f# a g f# d f# e
+    d b d a' g b a g
+    f# d e c#' d f# a a,
+    b g a f# d d' d8. c#16
+    # 11
+    d c# d d, c# a' e f#  d d' c# b c# f# a b
+    g f# e g f# e d c#    b a g f# e g f# e
+    d e f# g a e a g      f# b a g a g f# e
+    d b b' c# d c# b a    g f# e b' a b a g
+    # 15 the calm before the storm
+    f#8 f#' e4 r8 d f#4
+    b a        b c#
+    d8 d, c#4  r8 b d4
+    d4. d8     d g e a
+    # 19 This is where it becomes as hellish for the violinist as
+    # it is monotonous for the cellist.  Because of 32nd notes,
+    # the next four measures have two lines of code per measure.
+    a16 f#32 g a16 f#32 g    a a, b c# d e f# g
+    f#16 d32 e f#16 f#,32 g  a b a g a f# g a
+    g16 b32 a g16 f#32 e     f# e d e f# g a b
+    g16 b32 a b16 c#32 d     a b c# d e f# g a
+    f#16 d32 e f#16 e32 d    e c# d e f# e d c#
+    d16 b32 c# d16 d,32 e    f# g f# e f# d' c# d
+    b16 d32 c# b16 a32 g     a g f# g a b c# d
+    b16 d32 c# d16 c#32 b    c# d e d c# d b c#
+    # 23 whew. back to normal
+    d8 r c# r b r d r
+    d, r d r d r e r
+    r a r a r f# r a
+    r g r f# r g r e'
+    # 27
+    f#16 f#, g f# e e' f# e  d f#, d b' a a, g a
+    b b' c# b a a, g a       b b' a b c# c#, b c#
+    d d' e d c# c#, d c#     b b' a b c# c#, f# e
+    d d' e g f# f#, a f#'    d g f# g e a, g a
+    # 31
+    f# a a a a a a a         f# f# f# f# f# f# a a
+    g g g d' d d d d         d d b b a a e' c#
+    a f#' f# f# e e e e      d d d d a' a a a 
+    b b b b a a a a          b b b b c# c#, c# c#
+    # 35 it gets fast again; back to 2 lines/measure temporarily
+    d d,32 e f#16 d     c# c#'32 d e16 c#
+    b b,32 c# d16 b     c# a'32 g f#16 e
+    d g32 f# e16 g      f# d32 e f#16 a
+    g b32 a g16 f#      e a32 g f#16 e
+    f# d'32 c# d16 f#,  a a32 b c#16 a
+    f# d'32 e f#16 d    f# f#32 e d16 c#
+    b b32 a b16 c#      d f#32 e d16 f#
+    g d32 c# b16 b      a e a a
+    # 39
+    a4. a8 d,4. a'8
+    g4 a g8 d d8. c#16
+    d8 d' c#4 b a
+    d,8. e16 f#4 b e,8. e16
+    # 43
+    f#8. f#'16 f# g f# e d8. d16 d e d c#
+    b4 d d16 c b c a8. a16
+    a8. a'16 a b a g f#8. f#16 f# g f# e
+    d c b c a8. a16 g8 d' c#8. c#16
+    # 47
+    d8 d4 c# b a
+    g f#8~ f#8. e16 e4
+    f#8 f#'4 e8 d d'4 c8
+    b4 d8 a b4 a
+    a a,8. g16 f#4 f#'8. e16
+    d4. d8 d4 c#
+    # 53
+    d8 d, c# c#' b b, a a'
+    g g' f# f#, e b' e, e'
+    f# f#, e e' d d, c# c#'
+    b b' a a, g8. e'16 a,8 a
+    # 57
+    a4
+  play melody
+  at 5
+  play melody on pulse1 with fiddle2
+  at 11
+  mark 16th notes
+  at 19
+  mark 32nd notes
+  at 27
+  mark more 16ths
+  at 39
+  mark dots
+  at 47
+  mark syncopation
+  
+  at 56:2
+  tempo 50
+  at 56:3
+  tempo 43.75
+  at 56:4
+  tempo 37.5
+  at 57
+  tempo 31.25
+  play melody on pulse1 with fiddle2
+  at 57:2
+    fine
+
+# Happy Flappy Crappy
+# By Damian Yerrick, 2015
+
+song bf98
+  title Happy Flappy Crappy
+
+  # Carl Orff invented a different notation for time signatures.
+  # Top is beats per measure, bottom is the head and downward stem
+  # of a note that is 1 beat on the A (treble) or C (bass) space.
+  # Writing 9/8 as "3/(dotted quarter note)" makes compound
+  # prolation in particular easier to understand.
+  # We can't include pictures of notes in a score, but we can
+  # allow dotted durations in a denominator.
+  time 3/4.
+  scale 8
+  tempo 133.3
+
+  at 1
+  pattern orchhits on pulse2 with orchhit
+    orelative
+    g#'4. g#4 e2
+    f#4. f#4 a2
+  play orchhits
+
+  at 5
+  pattern drums
+    tkick4. clhat4 tkick8 tsnare4.
+    tkick4. clhat4 tkick8 tsnare4.
+    tkick4. clhat4 tkick8 tsnare4.
+    fallthrough
+  pattern drums_resumefill
+    tkick4 tsnare8 clhat4 tkick8 tsnare4 tsnare8
+  pattern drums_tripletfill
+    tkick4 clhat8 tsnare4 tkick tsnare
+  pattern drums_quietfill
+    tkick4. clhat clhat
+  pattern drums_break
+    tkick2. clhat4 tkick8
+  pattern bassA on triangle with bass
+    orelative
+    e4 r8 g#4 r8 b4 bb8
+    a4 r8 d4 r8 f#4 r8
+    e4 g#8 b4 r8 e'4 d#8
+    d4 r8 a,4 a# b
+  play bassA
+  play drums
+  play 10 on noise with crashcymbal
+
+  at 9
+  segno
+  pattern melodyA on pulse2 with bf98_flute
+    orelative
+    r4. g#'4 r8 b4 r8
+    a4 b8 a4 r8 f#4 r8
+    g#4 a8 b4 r8 e'4 r8
+    d5g e4. d4.~ d4 r8
+  play melodyA
+  play drums
+
+  at 13
+  pattern thirdsA on pulse1 with bf98_flute2
+    orelative
+    r4. e'4 r8 g#4 r8
+    f#4 g#8 f#4 r8 d4 r8
+    e4 f#8 g#4 r8 b4 r8
+    a1 r8
+  play thirdsA
+
+  at 17
+  stop pulse2
+  pattern osti1 on pulse1 with bf98_osti
+    orelative
+    r4 g#''8 b b b b4 g#8
+    r4 f#8 a a a a4 f#8
+    r4 e8 g# g# g# g#4 e8
+    r4 d8 f# f# f# f#4 d8
+  pattern osti2 on pulse2 with orchhit
+    relative
+    g#'4 @bf98_osti b'8 e e e e4 b8 @orchhit
+    f#,4 @bf98_osti a'8 d d d d4 a8 @orchhit
+    e,4 @bf98_osti g#'8 b b b b4 g#8 @orchhit
+    a,4 @bf98_osti f#'8 a a a a4 f#8 @orchhit
+  play osti1
+  play osti2
+
+  at 25
+  play melodyA
+  play thirdsA
+
+  at 33
+  mark B section
+  pattern melodyB1 on pulse2 with bf98_flute
+    relative
+    r4 a'8 c#4 e8 c#4 r8
+    d#4 c#8 b4 r8 b4 a8
+    g#4 r8 b4 r8 a4 c#8
+    b4. r e4 d#8
+    c#4 b8 a4 b8 c#4 r8
+    d#4 r8 b4 r8 a4 r8
+    g#4 r8 b4.~ b4 r2 r2.
+  pattern counterB1 on pulse1 with bf98_flute2
+    relative
+    c#'4 r8 e4 r8 a4 r8
+    f#4 r8 d#4 r8 f#4 r8
+    e4 r8 g#4 r8 f#4 r8
+    g#4. r2.
+    a4 r8 e4 r8 c#4 r8
+    d#4 r8 f#4 r8 d#4 r8
+    e4 r8 g#4.~ g#4 r2 r2.
+  pattern bassB1 on triangle with bass
+    relative
+    a4 r8 b4 r8 c#4 r8
+    b4 r8 f#4 r8 d#4 r8
+    e4 r8 e4 r8 b'4 r8
+    e4 r8 e,4 f# g#
+  play melodyB1
+  play counterB1
+  play bassB1
+  
+  at 40
+  play drums_tripletfill
+  
+  at 41
+  play drums
+
+  at 43
+  pattern melodyB2 on pulse2 with bf98_flute
+    relative
+    g'4 r8 b4 r8 c#4.
+    d r d4 c8
+    b4 c8 d4 r8 b4 r8
+    c#4 b8 a4 b8 c#4 d#8
+    d#4g e4. d#~ d#4 r8
+  pattern counterB2 on pulse1 with bf98_flute2
+    relative
+    e'4 r8 g4 r8 a4.
+    f#4 r8 d4 r8 f#4 r8
+    d4 r8 g4 r8 d4 r8
+    e4 r8 c#4 r8 e4 r8
+    f#1 r8
+  pattern bassB2 on triangle with bass
+    relative
+    e4 r8 e4 r8 a4 r8
+    d4 r8 d,4 e f#
+    g4 r8 b4 r8 d4 e8
+    a,4 r8 e'4 d8 c#4 r8
+    b4 r8 d#4 r8 f#,4 r8
+    b4 r8 r2.
+  play melodyB2
+  play counterB2
+  play bassB2
+  
+  at 48
+  play drums_quietfill
+  stop pulse1 pulse2
+
+  at 49
+  mark break
+  play drums
+  play bassA
+  
+  at 53
+  play drums_break
+  
+  at 56
+  play drums_resumefill
+
+  at 57
+  dal segno
+
+# Waltz to test new arpeggio features
+# (chord names, single-note, top interval relative, inversion)
+# by Damian Yerrick, 2017
+song arp_waltz
+  title Arpeggio Waltz
+  time 3/4	
+  scale 4
+  tempo 180
+  
+  pattern bass1 with toot0 on pulse1
+    absolute
+    f,4 a a c, a a
+    bb,, bb bb f, bb bb
+    g, bb bb d, bb bb
+    c, g g g, bb bb
+  pattern bass2 with toot0 on pulse1
+    absolute
+    c,4 bb bb
+    f, a a c, d, e,
+    fallthrough
+  pattern bassintro with toot0 on pulse1
+    absolute
+    f,4 a a c, a a
+
+  pattern melody with stringlead on pulse2
+    relative
+    @stringlead EN-M ENP2
+    a'2:-M/2 bb4:-dim c2 d4:-m
+    # q means repeat last chord
+    c bb2:-M/1 w4 q c
+    d2:-m c4 bb2:-M/1 a4:-m
+    g bb2:-dim w2.
+    EN-M/2
+    a2 bb4:-dim c2:-M a4
+    bb:-M/1 d2 w4 c:-M/1 d
+    c2:-M/1 bb4:-M/1 a2:-49 g4:-M
+    f2.:-M/1 w4 r2
+
+    # interlude begins
+    @argtwinkle
+    ENP2 f'2.:no3 ENP1 f:power
+    ENP2 bb:no3 ENP1 f:M/2
+    ENP2 g:no3 ENP1 g:power
+    c:sus4 g:M/2
+    ENP2 f2.:no3 ENP1 f:power
+    ENP2 bb:no3 ENP1 bb:Mno5
+    g:power g:M/2
+    f:Mno5 w
+
+  at 1
+  play bassintro
+  
+  at 5
+  segno
+  play melody
+  play bass1
+  
+  at 18
+  play bass2
+  
+  at 21
+  mark interlude
+  play bass1
+  
+  at 34
+  play bass2
+
+  at 37
+  dal segno
+
+# Individual Features
+# By Damian Yerrick, 2015
+
+song allfeatures
+  title Individual features
+  time 12/8
+  scale 16
+  tempo 120
+  
+  pickup 1:3
+  pattern between with feat_power
+    ENOF eb4. r1 w w w
+  play between down 12 on pulse1
+  play between down 5 on pulse2
+  play between up 12 on triangle with bass
+
+  at 2
+  stop pulse1
+  pattern drumfill
+    tkick8 clhat tkick tsnare tsnare tsnare
+    fallthrough
+  pattern drum
+    tkick8 clhat clhat tsnare clhat ohat tkick clhat clhat tsnare clhat tkick
+  play drum
+  at 3:3
+  play drumfill
+
+  at 4
+  pattern chords on pulse2 with feat_wah
+    orelative
+    ENm p4. eb'1 p2
+    ENM db1 p8
+  pattern bass on triangle with bass
+    orelative
+    eb'4 r8 gb4. r4 gb8 eb4 gb8
+    ab4 db r8 db4 r bb, r8
+  play bass
+  play drum
+  play chords
+  at 7:3
+  play drumfill
+  at 8
+  stop drum
+  da capo
+
+# Stairs
+# by Damian Yerrick, 2015
+# If anything, inspired by "Little Brown Jug"
+
+song Stairs
+  time 12/8
+  scale 8
+  tempo 100
+  
+  at 1
+  pattern lead1 on pulse2 with banjo
+    relative
+    g4. b b r4 g8
+    e4. g g r
+    a b4 c8 d4 c8 a4.
+    b d d r
+  play lead1
+
+  at 5:2
+  pattern lead1end on pulse2 with banjo
+    a
+    fallthrough
+  pattern introg on pulse1 with latebanjo
+    g r
+  play introg up 12
+
+  at 8:2
+  play lead1end
+  at 8:3
+  stop pulse1
+
+  at 9
+  segno
+  pattern bass on pulse1 with tubbass
+    g, @latebanjo g' @tubbass d, @latebanjo g' @tubbass
+    c, @latebanjo g' @tubbass g, @latebanjo g' @tubbass
+    d, @latebanjo g' @tubbass a, @latebanjo g' @tubbass
+    g, @latebanjo g' @tubbass d, @latebanjo g' @tubbass
+  play lead1
+  play bass
+
+  at 16:2
+  play lead1end
+  at 16:3
+  play introg down 12 with tubbass
+
+  at 17
+  mark rolls
+  pattern lead2 on pulse2 with banjo
+    g4 b8 d4 d'8   g4 b8 d4 d'8
+    g4 c'8 e4 e'8  g4 c'8 e4 e'8
+    a4 c'8 d4 d'8  a4 c'8 d4 d'8
+    b4 d'8 g4 d'8  b4 d'8 g4 d'8
+  play lead2
+  play bass
+
+  at 24
+  pattern lead2end on pulse2 with banjo
+    b4 d'8 a4 d'8 g4. r
+  play lead2end
+  at 24:3
+  play introg down 12 with tubbass
+
+  at 25
+  dal segno
+
+# Attack injection
+# by Damian Yerrick, 2015
+# If anything, inspired by "The Big One
+# (Theme from The People's Court)"
+# Also similar to "Subterranean Creep" from Haunted: Halloween '85
+# for NES, but Greg Caldwell of Retrotainment Games said "It's
+# different enough" in a Skype conversation on June 19, 2016
+song attacktest
+  title Attack injection (no pulse!)
+  time 12/4
+  scale 8
+  #tempo 85.9
+  tempo 4.=171.8
+  # This is technically in New Jack Swing time, where the second 
+  # division is compound instead of the first, but there's no
+  # classical time sig for NJS.  So instead, we choose a time
+  # signature that forces the correct beat length (dotted half).
+
+  at 1
+  pattern drumfill
+    snare4 ohat8 snare snare snare
+    fallthrough
+  pattern drums
+    kick4. clhat snare clhat4 kick8
+    clhat4. kick snare clhat
+    kick4. clhat snare clhat4 snare8
+    clhat4. kick snare ohat
+  play drums
+  pattern bass on triangle with bass
+    eb2 r8 f4 r1 r2. c4 r8
+    eb2 r8 f4 r4 EP16 ab1 r2 EP00 c4 r8
+    eb2 r8 f4 r1 r2. c4 r8
+    # 2018-03-20: A bug that required staying on a note for at least
+    # 2 frames (2g) before it's picked up as the portamento base
+    # is now fixed.
+    eb2 r8 f4 r4 eb1g EP16 gb1 EP00 r2 c4 r8
+  play bass
+  attack on triangle
+  pattern atk on attack with framepop
+    relative
+    f'''4 ab8 c4 ab8 c4 eb8 c4 eb8
+    g4 eb8 c4 eb8 c4 ab8 c4 ab8
+  play atk
+
+  at 4
+  play atk down 2
+  at 4:4
+  play drumfill
+  at 5
+  da capo
+

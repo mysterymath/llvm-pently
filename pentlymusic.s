@@ -23,7 +23,7 @@
 
 .include "pentlyseq.inc"
 .include "pently.inc"
-.include "../obj/nes/pentlybss.inc"
+.include "pentlybss.inc"
 
 .importzp pently_zp_state
 .import pentlyBSS
