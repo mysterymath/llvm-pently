@@ -6,7 +6,7 @@
 ;
 PENTLY_NUM_SONGS=10
 PENTLY_NUM_SOUNDS=15
-.include "../../src/pentlyseq.inc"
+.include "pentlyseq.inc"
 .segment "RODATA"
 pentlyseq_start:
 pently_sfx_table:  ; 15 entries, 330 bytes
