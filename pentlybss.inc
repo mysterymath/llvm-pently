@@ -1,0 +1,34 @@
+; Columns are 27-29 rows tall, total 112
+; Below max: 3; layout waste 1
+pentlymusicbase_size = 113
+pentlyi_instrument = pentlymusicbase + 0
+pentlyi_noteRowsLeft = pentlymusicbase + 1
+pentlyi_graceTime = pentlymusicbase + 2
+pentlyi_musicPattern = pentlymusicbase + 3
+pentlyi_chPitchHi = pentlymusicbase + 20
+pentlyi_chBaseNote = pentlymusicbase + 21
+pently_mute_track = pentlymusicbase + 22
+pentlyi_arpPhase = pentlymusicbase + 23
+pentlyi_arpInterval1 = pentlymusicbase + 36
+pentlyi_arpInterval2 = pentlymusicbase + 39
+pentlyi_vibratoDepth = pentlymusicbase + 41
+pentlyi_vibratoPhase = pentlymusicbase + 42
+pentlyi_notePitch = pentlymusicbase + 52
+pentlyi_chPitchLo = pentlymusicbase + 55
+pentlyi_chPortamento = pentlymusicbase + 57
+pentlyi_attackLen = pentlymusicbase + 58
+pentlyi_attackPitch = pentlymusicbase + 68
+pentlyi_sustainVol = pentlymusicbase + 71
+pentlyi_noteLegato = pentlymusicbase + 73
+pentlyi_chVolScale = pentlymusicbase + 74
+pently_vis_dutyvol = pentlymusicbase + 84
+pently_vis_pitchlo = pentlymusicbase + 87
+pently_vis_pitchhi = pentlymusicbase + 89
+pently_rowshi = pentlymusicbase + 90
+pently_rowslo = pentlymusicbase + 100
+pentlyi_tempoLo = pentlymusicbase + 103
+pentlyi_tempoHi = pentlymusicbase + 105
+pentlyi_songWaitRows = pentlymusicbase + 106
+pently_rows_per_beat = pentlymusicbase + 107
+pently_row_beat_part = pentlymusicbase + 109
+pently_tempo_scale = pentlymusicbase + 110
