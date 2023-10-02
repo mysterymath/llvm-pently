@@ -4,4 +4,6 @@ find_package(llvm-mos-sdk REQUIRED)
 
 project(llvm-pently)
 
+set(CMAKE_EXECUTABLE_SUFFIX .nes)
+
 add_executable(pently main.c)
