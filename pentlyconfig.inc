@@ -23,7 +23,7 @@ PENTLY_USE_VARMIX = 1
 ; sound effect interruption
 PENTLY_USE_SQUARE_POOLING = 1
 PENTLY_USE_MUSIC_IF_LOUDER = 1
-PENTLY_USE_PAL_ADJUST = 1
+PENTLY_USE_PAL_ADJUST = 0
 PENTLY_USE_TRIANGLE_DUTY_FIX = 1
 
 ; Utilities used when syncing animation to the audio.
