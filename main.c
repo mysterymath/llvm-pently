@@ -13,9 +13,12 @@ asm(
 );
 
 int main(void) {
+  pently_init();
+  pently_start_music(0);
   uint8_t cur_frame = frame_count;
   while(true) {
     while (frame_count == cur_frame)
       ;
+    pently_update();
   }
 }
