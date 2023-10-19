@@ -5,6 +5,8 @@ void pently_init(void);
 void pently_update(void);
 void pently_start_music(uint8_t songid);
 
+__attribute__((section(".zp.pently"))) const char pently_zptemp[5];
+
 volatile uint8_t frame_count;
 
 asm(
