@@ -1,3 +1,4 @@
+#include <nes.h>
 #include <stdbool.h>
 #include <stdint.h>
 
@@ -15,12 +16,15 @@ asm(
 );
 
 int main(void) {
+  // Enable NMI.
+  PPU.control = 0b10000000;
   pently_init();
-  pently_start_music(0);
+  pently_start_music(1);
   uint8_t cur_frame = frame_count;
   while(true) {
     while (frame_count == cur_frame)
       ;
     pently_update();
+    cur_frame = frame_count;
   }
 }
